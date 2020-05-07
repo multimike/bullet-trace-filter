@@ -1,4 +1,4 @@
-package logging
+package blueflow.logging
 
 import ch.qos.logback.classic.turbo.TurboFilter
 import ch.qos.logback.classic.{Level, Logger}
@@ -10,7 +10,7 @@ object BulletTraceFilter {
 		override def initialValue(): Int = Level.OFF_INT
 	}
 
-	def setLevel(l: org.slf4j.event.Level) = {
+	def setLevel(l: org.slf4j.event.Level): Unit = {
 		// convert slf level to logback level
 		val logbackLevel = Level.fromLocationAwareLoggerInteger(l.toInt)
 		thresholdLevels.set(logbackLevel.levelInt)
